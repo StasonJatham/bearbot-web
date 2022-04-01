@@ -346,7 +346,9 @@ $("#faang").click(function(e) {
 $("#topten").click(function(e) {
     e.preventDefault();
     $.ajax({
-        url: "/investor/api/topten",
+        type: "GET",
+        dataType: "json",
+        url: "/data/toptendips.json",
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');
@@ -412,7 +414,9 @@ function grabAllDips(e) {
         e.preventDefault();
     }
     $.ajax({
-        url: "/investor/api/all",
+        url: "/data/alldips.json",
+        type: "GET",
+        dataType: "json",
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');            
