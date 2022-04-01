@@ -290,9 +290,6 @@ $("#faang").click(function(e) {
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');
-
-            allRes = result.dips;
-
             const data = {
                 labels: result.labels,
                 datasets: [{
@@ -372,7 +369,6 @@ $("#topten").click(function(e) {
             );
         },
         complete: function (result) {
-            console.log(result)
             buildTable( result.responseJSON.dips )
         }
     })
@@ -403,11 +399,10 @@ function grabAllDips(e) {
     if (e) {
         e.preventDefault();
     }
-    url: "/data/alldips.json",
-    type: "GET",
-    dataType: "json",
     $.ajax({
-        url: "/investor/api/all",
+        url: "/data/alldips.json",
+        type: "GET",
+        dataType: "json",
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');            
