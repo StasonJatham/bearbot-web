@@ -295,7 +295,9 @@
 $("#faang").click(function(e) {
     e.preventDefault();
     $.ajax({
-        url: "/investor/api/faang",
+        type: "GET",
+        dataType: "json",
+        url: "/data/faangdips.json",
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');
