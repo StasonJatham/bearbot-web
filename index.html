@@ -372,6 +372,7 @@ $("#topten").click(function(e) {
             );
         },
         complete: function (result) {
+            console.log(result)
             buildTable( result.responseJSON.dips )
         }
     })
