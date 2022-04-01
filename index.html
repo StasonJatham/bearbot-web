@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,13 +38,6 @@
       type="text/css"
       href="/static/css/webfonts/fontawesome-all.min.css"
     />
-    <!--
-    <link
-      rel="manifest"
-      href="/static/manifest/bear_manifest.json"
-      data-pwa-version="set_in_manifest_and_pwa_js"
-    />
-    -->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -96,8 +87,6 @@
 
   <body id="mainBody" data-background="none" data-highlight="yellow2">
 
-
-     
 
 <!-- ======= Header ======= -->
 <header id="dipheader" class="fixed-top ">
@@ -295,9 +284,9 @@
 $("#faang").click(function(e) {
     e.preventDefault();
     $.ajax({
+        url: "/data/faangdips.json",
         type: "GET",
         dataType: "json",
-        url: "/data/faangdips.json",
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');
@@ -346,9 +335,9 @@ $("#faang").click(function(e) {
 $("#topten").click(function(e) {
     e.preventDefault();
     $.ajax({
+        url: "/data/toptendips.json",
         type: "GET",
         dataType: "json",
-        url: "/data/toptendips.json",
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');
@@ -413,10 +402,11 @@ function grabAllDips(e) {
     if (e) {
         e.preventDefault();
     }
+    url: "/data/alldips.json",
+    type: "GET",
+    dataType: "json",
     $.ajax({
-        url: "/data/alldips.json",
-        type: "GET",
-        dataType: "json",
+        url: "/investor/api/all",
         success: function( result ) {
             $('#myChart').remove();
             $('#graph-container').append('<canvas id="myChart"><canvas>');            
@@ -469,3 +459,4 @@ $("#all").click(function(e) {grabAllDips(e)});
 
   </body>
 </html>
+
